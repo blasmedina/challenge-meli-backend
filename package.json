@@ -1,0 +1,11 @@
+{
+  "name": "challenge-meli-backend",
+  "version": "1.0.0",
+  "description": "Challenge para Mercado Libre por Blas Medina. Api REST.",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "las Medina <r.blas.m.c@gmail.com>"
+}
