@@ -1,18 +1,25 @@
 import cookieParser from 'cookie-parser';
 import express, { json, urlencoded } from 'express';
-import logger from 'morgan';
+import morgan from 'morgan';
+
+import productsRouter from '../routes/products.router';
 
 const startedAt = new Date();
 
 const app = express();
 
-app.use(logger('dev'));
+app.use(
+  morgan('dev', {
+    skip: () => app.get('env') === 'test',
+  }),
+);
 app.use(json());
 app.use(urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/', (req, res) => {
+app.get('/', (_req, res) => {
   res.json({ startedAt });
 });
+app.use('/products', productsRouter);
 
 export default app;
