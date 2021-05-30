@@ -1,11 +1,14 @@
 /**
  * Module dependencies.
  */
-require('dotenv-flow').config();
+
+import dotenvFlow from 'dotenv-flow';
 import app from './app';
 import Debug from 'debug';
-const debug = Debug('challenge-meli-backend:server');
 import { createServer } from 'http';
+
+dotenvFlow.config();
+const debug = Debug('challenge-meli-backend:server');
 
 /**
  * Get port from environment and store in Express.
