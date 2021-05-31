@@ -10,8 +10,8 @@ export class ProductsController {
   static async findProducts(req: Request, res: Response, next: NextFunction) {
     try {
       const { searchInput } = req.params;
-      const items = await ProductsRepository.findProducts(searchInput);
-      return res.json({ autor, items });
+      const { categories, items } = await ProductsRepository.findProducts(searchInput);
+      return res.json({ autor, categories, items });
     } catch (error) {
       next(error);
     }

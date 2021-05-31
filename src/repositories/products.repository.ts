@@ -35,7 +35,8 @@ export default class ProductsRepository {
 
   static async findProducts(query: string) {
     const response = await ApiMeliService.findProducts(query);
-    const results = response.results
+    const categories = ['A', 'B', 'C'];
+    const items = response.results
       .slice(0, 4)
       .map(({ id, title, price, currency_id, thumbnail: picture, condition, shipping: { free_shipping } }) => ({
         id,
@@ -49,6 +50,6 @@ export default class ProductsRepository {
         condition,
         free_shipping,
       }));
-    return results;
+    return { categories, items };
   }
 }
