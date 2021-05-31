@@ -1,6 +1,7 @@
 import cookieParser from 'cookie-parser';
 import express, { json, urlencoded } from 'express';
 import morgan from 'morgan';
+import cors from 'cors';
 
 import logErrorsMiddleware from '../middlewares/log-errors.middleware';
 import errorHandlerMiddleware from '../middlewares/error-handler.middleware';
@@ -20,6 +21,7 @@ app.use(
 app.use(json());
 app.use(urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cors());
 
 app.get('/', (_req, res) => {
   res.json({ startedAt });
