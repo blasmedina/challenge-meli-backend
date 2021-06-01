@@ -3,11 +3,12 @@
  */
 
 import dotenvFlow from 'dotenv-flow';
+dotenvFlow.config();
+
 import app from './app';
 import Debug from 'debug';
 import { createServer } from 'http';
 
-dotenvFlow.config();
 const debug = Debug('challenge-meli-backend:server');
 
 /**
