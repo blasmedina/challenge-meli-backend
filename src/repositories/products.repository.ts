@@ -43,9 +43,10 @@ export default class ProductsRepository {
   static async findProducts(query: string, limit = 4) {
     const response = await ApiMeliService.findProducts(query);
 
-    const categories = response.filters
-      .filter((filter) => filter.id === 'category')[0]
-      .values[0].path_from_root.map((category) => category.name);
+    const categories =
+      response.filters
+        .find((filter) => filter.id === 'category')
+        ?.values[0].path_from_root.map((category) => category.name) || [];
 
     const items = response.results
       .slice(0, limit)
