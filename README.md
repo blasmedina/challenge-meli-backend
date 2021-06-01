@@ -6,7 +6,7 @@ Challenge para Mercado Libre por Blas Medina. Api REST.
 
 ### Pre-requisitos
 
-- Node: 10.24 para arriba
+- Node: v10 para arriba
 
 ### Instalación
 
